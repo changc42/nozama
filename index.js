@@ -13,24 +13,6 @@ async function run() {
     let testDb = client.db("test");
     let collection = testDb.collection("people");
 
-    //people
-    // let document = {
-    //   name: { first: "Caleb", last: "Chang" },
-    //   birth: new Date(2001, 10, 11),
-    //   hobbies: "swimming",
-    // };
-
-    //event
-    let document = {
-      name: "HackNYU",
-      date: {
-        start: new Date(2020, 03, 01),
-        end: new Date(2020, 03, 31),
-      },
-      description: "A Hackathon at NYU",
-      logo: "keyboard cat",
-    };
-
     // await collection.insertOne(document);
     const query = { name: { first: "Caleb", last: "Chang" } };
     const update = {
@@ -39,7 +21,7 @@ async function run() {
       },
     };
     const options = { upsert: "false" };
-    await collection.updateOne(query, update, options);
+    await collection.findOne(query, update, options);
     const myDoc = await collection.findOne();
     console.log(myDoc);
 

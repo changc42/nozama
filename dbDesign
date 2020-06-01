@@ -1,0 +1,14 @@
+Database: nozama
+
+Collection:
+
+Customer {
+    cust_email,
+    cart:[specific_product_id]
+    inventory,
+    profile_pic,
+    name: {
+        fname,
+        lname
+    }
+}
