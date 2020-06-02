@@ -5,7 +5,7 @@ let collectionCustomer = {
   name: {
     first: "string",
     last: "string",
-    username,
+    username: "string",
   },
   cart: [{ specific_product_id: "objectID" }],
   nozama_bucks: "int32",
@@ -23,4 +23,7 @@ let generalProduct = {
   price: "double",
 };
 
-let session = {};
+let session = {
+  cookie_id: "string",
+  user_id: "objectID",
+};

@@ -1,5 +1,10 @@
 let uuidv4 = require("uuid").v4;
+let client = require("../mongoActions");
 
+client.connect((err) => {
+  if (err) console.log(err);
+  const customerCollection = client.db("Cluster0").collection("customer");
+});
 module.exports = (req, res, next) => {
   if (!req.headers.cookie) {
     let cookieString = uuidv4();
@@ -8,5 +13,5 @@ module.exports = (req, res, next) => {
       Location: req.baseUrl + req.url,
     });
   }
-  res.end(req.headers.cookie);
+  next();
 };
