@@ -1,5 +1,10 @@
 let url = require("url");
-let { clientID, clientSecret, redirectURI } = require("../../config/keys");
+let {
+  clientID,
+  clientSecret,
+  redirectURI,
+  API_KEY,
+} = require("../../config/keys");
 let https = require("https");
 
 module.exports = (req, res) => {
@@ -31,7 +36,7 @@ module.exports = (req, res) => {
 function getUserInfo(accessToken, origRes) {
   console.log(accessToken);
   let query = {
-    key: "AIzaSyA6W034264DgUZJPKWNP7u_rDInOC_f4yA",
+    key: API_KEY,
     personFields: "emailAddresses",
     access_token: accessToken,
   };
