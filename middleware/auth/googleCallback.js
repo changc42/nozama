@@ -20,10 +20,32 @@ module.exports = (req, res) => {
           sb += data.toString();
         });
         tokenRes.on("end", () => {
-          console.log(sb);
-          res.send("done");
+          let accessToken = JSON.parse(sb).access_token;
+          getUserInfo(accessToken, res);
         });
       }
     )
     .end(JSON.stringify(query));
 };
+
+function getUserInfo(accessToken, origRes) {
+  console.log(accessToken);
+  let query = {
+    key: "AIzaSyA6W034264DgUZJPKWNP7u_rDInOC_f4yA",
+    personFields: "emailAddresses",
+    access_token: accessToken,
+  };
+  let queryString = new URLSearchParams(query).toString();
+  https.get(
+    "https://people.googleapis.com/v1/people/me?" + queryString,
+    (res) => {
+      let sb = "";
+      res.on("data", (data) => (sb += data.toString()));
+      res.on("end", () => {
+        let personObj = JSON.parse(sb);
+        let googleID = personObj.resourceName.split("/")[1];
+        origRes.end(googleID);
+      });
+    }
+  );
+}
