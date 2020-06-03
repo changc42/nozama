@@ -1,4 +1,4 @@
-let { clientID, clientSecret, redirectURI } = require("../../config/keys");
+let { clientID, clientSecret, redirectURI } = require("../../config");
 let url = require("url");
 
 module.exports = (req, res) => {

@@ -1,10 +1,5 @@
 let url = require("url");
-let {
-  clientID,
-  clientSecret,
-  redirectURI,
-  API_KEY,
-} = require("../../config/keys");
+let { clientID, clientSecret, redirectURI, API_KEY } = require("../../config");
 let https = require("https");
 
 module.exports = (req, res) => {
