@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Landing from "../Landing/Landing";
 
 function App() {
   return (
-    // <BrowserRouter>
-    //   <Switch>
-    //     <Route exact path="/">
-    <a href="api/auth/google">login</a>
-    /* </Route>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Landing />
+        </Route>
         <Route exact path="/unauthorized">
           <a href="/">You must login</a>
         </Route>
@@ -18,7 +19,7 @@ function App() {
           <h1> heyyio</h1>
         </Route>
       </Switch>
-    </BrowserRouter> */
+    </BrowserRouter>
   );
 }
 

@@ -10,10 +10,7 @@ let collectionCustomer = {
   cart: [{ specific_product_id: "objectID" }],
   nozama_bucks: "int32",
   inventory: [{ specific_product_id: "objectID" }],
-  session: {
-    cookie_id: "string",
-    expires: "date",
-  },
+  cookie,
 };
 
 let collectionSpecificProduct = {

@@ -1,10 +1,10 @@
-module.exports = (googleID, fname, lname, username) => ({
+module.exports = (googleID, fname, lname, cookie) => ({
   googleID,
   name: {
     fname,
     lname,
-    username,
   },
+  cookie,
   cart: [],
   nozama_bucks: 100,
   inventory: [],

@@ -9,13 +9,13 @@ let CustomerDAO = require("../mongoDB/dao/CustomerDAO");
 module.exports = async (req, res, next) => {
   console.log(req.cookies);
   console.log(req.url);
-  if (req.url === "/manifest.json/") {
+  if (req.url === "/manifest.json") {
     next();
   } else if (!req.cookies.default) {
     console.log("no cookie");
     let cookieString = uuidv4();
     res.writeHead(302, {
-      "Set-cookie": `default=${cookieString}`,
+      "Set-cookie": `default=${cookieString}; Max-Age=86400`,
       Location: req.baseUrl + req.url,
     });
     res.end();

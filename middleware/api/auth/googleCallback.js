@@ -1,6 +1,12 @@
 let url = require("url");
-let { clientID, clientSecret, redirectURI, API_KEY } = require("../../config");
+let {
+  clientID,
+  clientSecret,
+  redirectURI,
+  API_KEY,
+} = require("../../../config");
 let https = require("https");
+let CustomerDao = require("../../../mongoDB/dao/CustomerDAO");
 
 module.exports = (req, res) => {
   let code = url.parse(req.url, true).query.code;
@@ -21,18 +27,18 @@ module.exports = (req, res) => {
         });
         tokenRes.on("end", () => {
           let accessToken = JSON.parse(sb).access_token;
-          getUserInfo(accessToken, res);
+          getUserInfo(accessToken, req, res);
         });
       }
     )
     .end(JSON.stringify(query));
 };
 
-function getUserInfo(accessToken, origRes) {
+function getUserInfo(accessToken, origReq, origRes) {
   console.log(accessToken);
   let query = {
     key: API_KEY,
-    personFields: "emailAddresses",
+    personFields: "names",
     access_token: accessToken,
   };
   let queryString = new URLSearchParams(query).toString();
@@ -41,10 +47,25 @@ function getUserInfo(accessToken, origRes) {
     (res) => {
       let sb = "";
       res.on("data", (data) => (sb += data.toString()));
-      res.on("end", () => {
+      res.on("end", async () => {
         let personObj = JSON.parse(sb);
+        console.log(personObj);
         let googleID = personObj.resourceName.split("/")[1];
-        origRes.end(googleID);
+        let lname = personObj.names[0].familyName;
+        let fname = personObj.names[0].givenName;
+
+        let custDoc = await CustomerDao.googleIdToUser(googleID);
+        if (custDoc === null) {
+          await CustomerDao.createUser(
+            googleID,
+            fname,
+            lname,
+            origReq.cookies.default
+          );
+        } else {
+          await CustomerDao.updateCookie(googleID, origReq.cookies.default);
+        }
+        origRes.redirect(origReq.baseUrl + "/");
       });
     }
   );
