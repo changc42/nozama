@@ -4,5 +4,6 @@ module.exports = {
   },
   coll: {
     customer: "customer",
+    generalProduct: "generalProduct",
   },
 };

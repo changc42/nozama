@@ -1,5 +1,4 @@
 let uuidv4 = require("uuid").v4;
-let client = require("../mongoDB/mongoActions");
 let CustomerDAO = require("../mongoDB/dao/CustomerDAO");
 
 // client.connect((err) => {

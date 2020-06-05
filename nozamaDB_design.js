@@ -22,6 +22,8 @@ let generalProduct = {
   general_product_id: "objectID",
   product_name: "string",
   price: "double",
+  description,
+  imgSrc,
 };
 
 let session = {
