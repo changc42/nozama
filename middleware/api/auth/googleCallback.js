@@ -65,7 +65,7 @@ function getUserInfo(accessToken, origReq, origRes) {
         } else {
           await CustomerDao.updateCookie(googleID, origReq.cookies.default);
         }
-        origRes.redirect(origReq.baseUrl + "/");
+        origRes.redirect(origReq.baseUrl + "/shop");
       });
     }
   );

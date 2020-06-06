@@ -2,7 +2,7 @@ export default (theme) => ({
   root: { textAlign: "center", margin: "25vh 0" },
   Logo: {
     [theme.breakpoints.down("xs")]: {
-      width: "400px",
+      width: "300px",
     },
   },
   Subtitle: {
@@ -16,5 +16,6 @@ export default (theme) => ({
   },
   Button: {
     margin: "10px",
+    width: "250px",
   },
 });

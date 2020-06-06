@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Button, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import styles from "./notLoggedInLandingStyles";
 import theme from "../../muiTheme";
 
@@ -34,6 +35,15 @@ function NotLoggedInLanding(props) {
             className={classes.Button}
           >
             Proceed As Guest
+          </Button>
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            disableElevation
+            className={classes.Button}
+            startIcon={<HelpOutlineIcon />}
+          >
+            What is this website?
           </Button>
         </Grid>
       </Grid>

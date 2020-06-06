@@ -4,6 +4,7 @@ import Landing from "../Landing/Landing";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../../muiTheme";
+import Shop from "../Shop/Shop";
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Route exact path="/unauthorized">
             <a href="/">You must login</a>
           </Route>
-          <Route exact path="/dashboard">
-            <h1> you are logged in</h1>
+          <Route exact path="/shop">
+            <Shop />
           </Route>
           <Route exact path="/test">
             <h1> heyyio</h1>
