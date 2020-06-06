@@ -9,8 +9,11 @@ function NotLoggedInLanding(props) {
   return (
     <div className={classes.root}>
       <img src="nozama_logo_full.png" className={classes.Logo} />
-      <Typography variant="h4">A fake shopping website</Typography>
-      <Grid container>
+      <Typography variant="h3" style={{ fontFamily: "Officina Sans Bold" }}>
+        A fake shopping website
+      </Typography>
+
+      <Grid container className={classes.ButtonContainer}>
         <Grid item xs={12}>
           <Button
             variant="outlined"

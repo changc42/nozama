@@ -10,9 +10,7 @@ export default function Landing() {
       .then((data) => setIsLoggedIn(data.isLoggedIn));
   }, []);
 
-  // if (isLoggedIn === null) return "";
-  // else if (isLoggedIn) return <LoggedInLanding />;
-  // else
-
-  return <NotLoggedInLanding />;
+  if (isLoggedIn === null) return "";
+  else if (isLoggedIn) return <LoggedInLanding />;
+  else return <NotLoggedInLanding />;
 }

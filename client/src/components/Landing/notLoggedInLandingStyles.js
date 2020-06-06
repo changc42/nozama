@@ -1,4 +1,4 @@
-module.exports = (theme) => ({
+export default (theme) => ({
   root: { textAlign: "center", margin: "25vh 0" },
   Logo: {
     [theme.breakpoints.down("xs")]: {
@@ -7,6 +7,9 @@ module.exports = (theme) => ({
   },
   Subtitle: {
     textAlign: "center",
+  },
+  ButtonContainer: {
+    margin: "10vh 0",
   },
   ButtonIcon: {
     height: "1rem",
