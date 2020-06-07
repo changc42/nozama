@@ -22,4 +22,8 @@ module.exports = class GeneralProductDAO {
     console.log(documents);
     await generalProductCollection.insertMany(documents);
   }
+
+  static async getAllProducts() {
+    return await generalProductCollection.find().toArray();
+  }
 };

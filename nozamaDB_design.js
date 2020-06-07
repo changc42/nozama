@@ -7,7 +7,7 @@ let collectionCustomer = {
     last: "string",
     username: "string",
   },
-  cart: [{ specific_product_id: "objectID" }],
+  cart: [{ product_name: "string", quantity: "int32" }],
   nozama_bucks: "int32",
   inventory: [{ specific_product_id: "objectID" }],
   cookie,

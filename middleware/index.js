@@ -16,6 +16,7 @@ router.get("/api/auth/google", require("./api/auth/google"));
 router.get("/api/auth/google/callback", require("./api/auth/googleCallback"));
 
 router.get("/api/mongo/isLoggedIn", require("./api/mongo/isLoggedIn"));
+router.get("/api/mongo/getAllProducts", require("./api/mongo/getAllProducts"));
 
 router.get("/api/logout", require("./api/logout"));
 

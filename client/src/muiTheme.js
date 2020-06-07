@@ -6,7 +6,19 @@ let officina = {
   src: `url(${officinaWoff})`,
 };
 let theme = createMuiTheme({
-  palette: { background: { default: "white" } },
+  typography: {
+    fontFamily: "Officina Sans Bold",
+  },
+  palette: {
+    background: { default: "white" },
+    primary: {
+      main: "#fe9a01",
+    },
+    secondary: {
+      main: "#000000",
+      light: "gray",
+    },
+  },
   overrides: {
     MuiCssBaseline: {
       "@global": {

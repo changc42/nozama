@@ -52,4 +52,8 @@ module.exports = class CustomerDAO {
   static async endSession(googleID) {
     custCollection.updateOne({ googleID }, { $unset: { cookie: "" } });
   }
+
+  static async addItemsToCart(googleID, productName, quantity) {
+    custCollection.updateOne({ googleID }, { $inc: {} });
+  }
 };

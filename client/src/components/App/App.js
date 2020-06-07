@@ -5,6 +5,8 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../../muiTheme";
 import Shop from "../Shop/Shop";
+import NavBar from "../NavBar/NavBar";
+import { Toolbar } from "@material-ui/core";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <a href="/">You must login</a>
           </Route>
           <Route exact path="/shop">
+            <NavBar />
+            <Toolbar />
             <Shop />
           </Route>
           <Route exact path="/test">
