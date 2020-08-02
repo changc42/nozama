@@ -6,5 +6,6 @@ module.exports = {
     customer: "customer",
     generalProduct: "generalProduct",
     customerCart: "customerCart",
+    specificProduct: "specificProduct",
   },
 };

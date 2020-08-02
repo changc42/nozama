@@ -10,10 +10,11 @@ router.use((req, res, next) => {
   next();
 });
 router.use(cookieParser(uuidv4()));
-router.use(require("./preventUnauthorizedAccess"));
 
 router.get("/api/auth/google", require("./api/auth/google"));
 router.get("/api/auth/google/callback", require("./api/auth/googleCallback"));
+
+router.use(require("./preventUnauthorizedAccess"));
 
 router.get("/api/mongo/isLoggedIn", require("./api/mongo/isLoggedIn"));
 router.get("/api/mongo/getAllProducts", require("./api/mongo/getAllProducts"));

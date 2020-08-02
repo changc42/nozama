@@ -1,5 +1,6 @@
 let { db, coll } = require("../dbAndColls");
-let custCartModel = require("../models/Customer");
+let CustCartItem = require("../models/CustomerCart");
+let uuidv4 = require("uuid").v4;
 
 let custCartCollection;
 
@@ -12,5 +13,14 @@ module.exports = class CustomerDAO {
     } catch (e) {
       console.error("unable to connect to customer collection", e);
     }
+  }
+
+  //adds multiple items to cart. items is an array
+  static async batchAddToCart(googleID, productName, quantity) {
+    let documents = [];
+    for (let i = 0; i < quantity; i++) {
+      documents.push(CustCartItem(googleID, productName, uuidv4()));
+    }
+    custCartCollection.insertMany(documents);
   }
 };
