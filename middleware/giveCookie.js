@@ -5,6 +5,10 @@ let CustomerDAO = require("../mongoDB/dao/CustomerDAO");
 //   if (err) console.log(err);
 //   const customerCollection = client.db("Cluster0").collection("customer");
 // });
+
+/*
+This function checks if user's browser has a cookie named "default"
+*/
 module.exports = async (req, res, next) => {
   console.log(req.cookies);
   console.log(req.url);

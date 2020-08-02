@@ -7,54 +7,54 @@ export default function Shop() {
   let [isProductSelected, setIsProductSelected] = useState(false);
   let [selectedProduct, setSelectedProduct] = useState("default");
   let [allProducts, setAllProducts] = useState([
-    {
-      product_name: "Orange",
-      price: 1.99,
-      description: "High Vitamin C",
-      imgSrc: "orange.jpg",
-    },
-    {
-      product_name: "Apple",
-      price: 2.99,
-      description: "A healthy snack",
-      imgSrc: "apple.jpg",
-    },
-    {
-      product_name: "Justin Bieber Used Tissue",
-      price: 500,
-      description: "Baby, baby, baby, ohhhh",
-      imgSrc: "used_tissue.jpg",
-    },
-    {
-      product_name: "Pocky",
-      price: 8.99,
-      description: "Stick dipped in chocolate",
-      imgSrc: "pocky.jpg",
-    },
-    {
-      product_name: "Used Toilet Paper Roll",
-      price: 4.99,
-      description: "Can be used as bubble tea straw",
-      imgSrc: "toilet_paper.jpg",
-    },
-    {
-      product_name: "Dictionary",
-      price: 29.99,
-      description: "Helps you read",
-      imgSrc: "dictionary.jpg",
-    },
-    {
-      product_name: "Yeezys",
-      price: 5000,
-      description: "Fair and affordable price",
-      imgSrc: "yeezy.jpg",
-    },
-    {
-      product_name: "Stick",
-      price: 50,
-      description: "Pocky without the chocolate",
-      imgSrc: "stick.png",
-    },
+    // {
+    //   product_name: "Orange",
+    //   price: 1.99,
+    //   description: "High Vitamin C",
+    //   imgSrc: "orange.jpg",
+    // },
+    // {
+    //   product_name: "Apple",
+    //   price: 2.99,
+    //   description: "A healthy snack",
+    //   imgSrc: "apple.jpg",
+    // },
+    // {
+    //   product_name: "Justin Bieber Used Tissue",
+    //   price: 500,
+    //   description: "Baby, baby, baby, ohhhh",
+    //   imgSrc: "used_tissue.jpg",
+    // },
+    // {
+    //   product_name: "Pocky",
+    //   price: 8.99,
+    //   description: "Stick dipped in chocolate",
+    //   imgSrc: "pocky.jpg",
+    // },
+    // {
+    //   product_name: "Used Toilet Paper Roll",
+    //   price: 4.99,
+    //   description: "Can be used as bubble tea straw",
+    //   imgSrc: "toilet_paper.jpg",
+    // },
+    // {
+    //   product_name: "Dictionary",
+    //   price: 29.99,
+    //   description: "Helps you read",
+    //   imgSrc: "dictionary.jpg",
+    // },
+    // {
+    //   product_name: "Yeezys",
+    //   price: 5000,
+    //   description: "Fair and affordable price",
+    //   imgSrc: "yeezy.jpg",
+    // },
+    // {
+    //   product_name: "Stick",
+    //   price: 50,
+    //   description: "Pocky without the chocolate",
+    //   imgSrc: "stick.png",
+    // },
   ]);
   useEffect(() => {
     fetch("api/mongo/getAllProducts")

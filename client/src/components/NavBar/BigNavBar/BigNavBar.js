@@ -53,14 +53,17 @@ function BigNavBar(props) {
           >
             <ShoppingCartIcon />
           </IconButton>
-          <IconButton
+          {/* <IconButton
             color="secondary"
             aria-label="upload picture"
             component="span"
             onClick={() => (window.location.href = "inventory")}
           >
             <img src="shopping-bag.svg" style={{ height: "2rem" }} />
-          </IconButton>
+          </IconButton> */}
+          <Button color="inherit" className={classes.button} href="api/logout">
+            Purchases
+          </Button>
           <Button color="inherit" className={classes.button} href="api/logout">
             Logout
           </Button>
