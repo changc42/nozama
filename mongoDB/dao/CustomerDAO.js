@@ -16,10 +16,10 @@ module.exports = class CustomerDAO {
     return await custCollection.findOne();
   }
 
-  static async cookieToUser(cookie) {
-    let custDoc = await custCollection.findOne({ cookie });
-    return custDoc;
-  }
+  // static async cookieToUser(cookie) {
+  //   let custDoc = await custCollection.findOne({ cookie });
+  //   return custDoc;
+  // }
 
   static async googleIdToUser(googleID) {
     let custDoc = await custCollection.findOne({ googleID });
@@ -31,21 +31,21 @@ module.exports = class CustomerDAO {
     custCollection.insertOne(newCustDoc);
   }
 
-  static async updateCookie(googleID, cookie) {
-    const query = { googleID };
-    const update = {
-      $set: {
-        cookie,
-      },
-    };
-    const options = {
-      upsert: true,
-    };
-    custCollection.updateOne(query, update, options);
-  }
+  // static async updateCookie(googleID, cookie) {
+  //   const query = { googleID };
+  //   const update = {
+  //     $set: {
+  //       cookie,
+  //     },
+  //   };
+  //   const options = {
+  //     upsert: true,
+  //   };
+  //   custCollection.updateOne(query, update, options);
+  // }
 
-  static async isLoggedIn(cookie) {
-    let custDoc = await custCollection.findOne({ cookie });
+  static async isLoggedIn(googleID) {
+    let custDoc = await custCollection.findOne({ googleID });
     return custDoc ? true : false;
   }
 

@@ -1,6 +1,7 @@
 let express = require("express");
 let cookieParser = require("cookie-parser");
 let path = require("path");
+let uuidv4 = require("uuid").v4;
 
 let router = require("express").Router();
 
@@ -8,8 +9,7 @@ router.use((req, res, next) => {
   console.log("at first middle ware", req.url);
   next();
 });
-router.use(cookieParser());
-router.use(require("./giveCookie"));
+router.use(cookieParser(uuidv4()));
 router.use(require("./preventUnauthorizedAccess"));
 
 router.get("/api/auth/google", require("./api/auth/google"));

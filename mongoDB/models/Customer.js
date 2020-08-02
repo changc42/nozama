@@ -1,9 +1,8 @@
-module.exports = (googleID, fname, lname, cookie) => ({
+module.exports = (googleID, fname, lname) => ({
   googleID,
   name: {
     fname,
     lname,
   },
-  cookie,
   nozama_bucks: 100,
 });

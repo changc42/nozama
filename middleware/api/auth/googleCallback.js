@@ -49,22 +49,21 @@ function getUserInfo(accessToken, origReq, origRes) {
       res.on("data", (data) => (sb += data.toString()));
       res.on("end", async () => {
         let personObj = JSON.parse(sb);
-        console.log(personObj);
+        // console.log(personObj);
         let googleID = personObj.resourceName.split("/")[1];
         let lname = personObj.names[0].familyName;
         let fname = personObj.names[0].givenName;
 
         let custDoc = await CustomerDao.googleIdToUser(googleID);
         if (custDoc === null) {
-          await CustomerDao.createUser(
-            googleID,
-            fname,
-            lname,
-            origReq.cookies.default
-          );
-        } else {
-          await CustomerDao.updateCookie(googleID, origReq.cookies.default);
+          await CustomerDao.createUser(googleID, fname, lname);
         }
+
+        origRes.cookie("googleID", googleID, {
+          expire: 360000 + Date.now(),
+          signed: true,
+        });
+
         origRes.redirect(origReq.baseUrl + "/shop");
       });
     }

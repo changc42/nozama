@@ -8,7 +8,6 @@ let customer = {
     username: "string",
   },
   nozama_bucks: "int32",
-  cookie,
 };
 
 let customerCart = {
@@ -32,9 +31,4 @@ let generalProduct = {
   price: "double",
   description,
   imgSrc,
-};
-
-let session = {
-  cookie_id: "string",
-  user_id: "objectID",
 };
