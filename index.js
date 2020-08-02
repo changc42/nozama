@@ -6,6 +6,7 @@ let { mongoURI } = require("./config");
 const MongoClient = require("mongodb").MongoClient;
 let CustomerDAO = require("./mongoDB/dao/CustomerDAO");
 let GeneralProductDAO = require("./mongoDB/dao/GeneralProductDAO");
+let CustomerCartDAO = require("./mongoDB/dao/CustomerCartDAO");
 let app = express();
 
 MongoClient.connect(mongoURI, { useNewUrlParser: true })
@@ -16,6 +17,7 @@ MongoClient.connect(mongoURI, { useNewUrlParser: true })
   .then(async (client) => {
     CustomerDAO.injectDB(client);
     GeneralProductDAO.injectDB(client);
+    CustomerCartDAO.injectDB(client);
 
     app.use(middleware);
     app.use("*", (req, res) => {

@@ -5,7 +5,5 @@ module.exports = (googleID, fname, lname, cookie) => ({
     lname,
   },
   cookie,
-  cart: [],
   nozama_bucks: 100,
-  inventory: [],
 });
